@@ -1,0 +1,17 @@
+'use strict'
+const merge = require('webpack-merge')
+const prodEnv = require('./prod.env')
+
+module.exports = merge(prodEnv, {
+  NODE_ENV: '"development"',
+  PROXY_URL:'"http://localhost:8080"',
+  URL_LOCAL_GETINFO: '"http://100.5.8.253:9090/cas/gateway/getInfo.do"',
+  URL_LOCAL_LOGOUT: '"http://100.5.8.253:9090/cas/gateway/logout.do"',
+  URL_LOCAL_CASCALLBACK: '"http://100.5.8.253:9090/cas/gateway/casCallback.do"',
+  URL_LOCAL_REGISTER: '"http://100.5.8.253:9090/cas/gateway/reg4Gwt.do"',
+  URL_CAS_LOGIN_PREFIX: '"https://passport.11185.cn:8001/cas/login"',
+  URL_CAS_LOGOUT_PREFIX: '"https://passport.11185.cn:8001/cas/logout"',
+  PARAM_TICKET:  '"ticket"',
+  PROXY_PAGE: '"http://localhost:8080/sso"',
+  SSO_CATCHER: 'ssocatcher'
+})
