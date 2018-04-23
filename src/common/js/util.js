@@ -3,7 +3,8 @@ export default {
     let url = window.location.href;
     // let url = window.location.search;
     let obj = {};
-    let reg = /[?&]+[^?&]+=[^?&]+/g;
+    // let reg = /[?&]+[^?&]+=[^?&]+/g;
+    let reg = /[?&#]+[^?&#]+=[^?&#]+/g;
     let arr = url.match(reg);
     // ['?id=12345', '&a=b']
     if (arr) {
@@ -16,18 +17,35 @@ export default {
     }
     return obj;
   },
-  getHostPath: function() {
+  getRedirectUrl: function() {
     let url = window.location.href;
-    let hostPath;
+    let redirectUrl;
     if (url.indexOf('/#/') > 0) {
-      hostPath = url.split('/#/')[0] + '/#/';
+      redirectUrl = window.location.hash.replace('#', '');
     } else {
-      hostPath = window.location.host + window.location.pathname;
+      redirectUrl = window.location.pathname;
     }
-    return hostPath;
+    return redirectUrl;
+  },
+  getSsoService: function(paraName, paraValue, catcher) {
+    // let url = window.location.href;
+    // let hostPath;
+    // if (url.indexOf('/#/') > 0) {
+    //   hostPath = url.split('/#/')[0] + '/#/';
+    // } else {
+    //   hostPath = window.location.origin + '/';
+    // }
+    // return hostPath;
+    let ssoService;
+    if (this.isBlank(window.location.hash)) {
+      ssoService = window.location.origin + '/' + catcher + '?' + paraName + '=' + paraValue;
+    } else {
+      ssoService = window.location.origin + '/' + '?' + paraName + '=' + paraValue + '#' + catcher;
+    }
+    return ssoService;
   },
   isBlank: function (str) {
-    if (str === null || str === '' || typeof str === 'undefined') {
+    if (str === null || str === '' || str === 'undefined' || typeof str === 'undefined') {
       return true;
     }
     return false;
@@ -48,5 +66,15 @@ export default {
     } else {
       return null;
     }
+  },
+  setCookie: function (key, value) {
+    if (!this.isBlank(value)) {
+      document.cookie = key + '=' + value;
+    }
+  },
+  setCookieExpires: function () {
+      let exdate = new Date();
+      exdate.setDate(exdate.getDate() + 1);
+      document.cookie = 'expires=' + exdate.toGMTString(); // + ';path=/' + ';domain=post.com';
   }
 };

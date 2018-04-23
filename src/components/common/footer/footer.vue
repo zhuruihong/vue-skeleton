@@ -56,7 +56,7 @@
     // },
     // mounted() {
     //   console.log('foot emit run');
-    //   bus.$emit('sso-info', 'zhao');
+    //   bus.$emit('ssofilter-info', 'zhao');
     // }
   };
 </script>

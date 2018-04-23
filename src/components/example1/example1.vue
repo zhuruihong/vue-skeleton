@@ -5,7 +5,7 @@
       <h1 class="h1-disp h1-font">{{ env }}</h1>
       <h1>{{ msg }}</h1>
       <h1>{{ tips }}</h1>
-      <router-link :to="{ name: 'test', params: { user: 123 }}">test</router-link>
+      <router-link :to="{ name: 'example2', params: { prefacePage: 'example1' }}">go to example2</router-link>
     </div>
   </div>
 </template>
@@ -14,7 +14,7 @@
 import mheader from 'components/common/header/header';
 import mfooter from 'components/common/footer/footer';
 
-// const config = require('../../../config');
+const config = require('../../../config');
 export default {
   name: 'HelloWorld',
   data: function() {
@@ -23,9 +23,11 @@ export default {
       env_context: 'The building environment is ',
       env: process.env.NODE_ENV + '.',
       tips: 'You can design something here.',
-      // config: config,
-      url: 'http%3A%2F%2Flocalhost%3A8080%2Fstatic%2Fproxy.html'
+      config: config
     };
+  },
+  created() {
+    console.log(window.location);
   },
   components: {
     mheader,

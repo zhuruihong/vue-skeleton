@@ -31,7 +31,7 @@
         <li>
           <a href="#" @click="login" v-show="loginShow">请登录!</a>
           <a href="#" v-show="userShow">
-            <strong><span @click="userInfo">Hi, {{userName}}</span></strong>
+            <strong><span @click="userInfo">Hi, {{userId}}</span></strong>
             &nbsp;&nbsp;&nbsp;
           </a>
           <a href="#" @click="logout" v-show="userShow">退出</a>
@@ -64,8 +64,12 @@
   export default {
     data: function() {
       return {
-        proxyUrl: process.env.PROXY_URL,
-        userName: '',
+        redirectUrl: (() => {
+            let redirectUrl = util.getRedirectUrl();
+            return redirectUrl;
+          }
+        )(),
+        userId: '',
         loginShow: true,
         userShow: false
       };
@@ -76,9 +80,10 @@
         this.$router.push({path: '/'});
       },
       login() {
-        console.log('proxyUrl=' + this.proxyUrl);
-        console.log('cpsdcSso=' + cpsdcSso);
-        window.location.href = cpsdcSso.getLoginUrl(this.proxyUrl);
+        this.$router.push({
+          name: 'ssofilter',
+          params: {redirect: this.redirectUrl}
+        });
       },
       logout() {
         cpsdcSso.logout(this.proxyUrl);
@@ -90,25 +95,27 @@
         // console.log('NNNNNNNNN=' + cpsdcSso.getInfo('token'));
         this.userShow = true;
         this.loginShow = false;
-        this.userName = 'zhaoxnshow@11185.cn';
-      }
-    },
-    created() {
-      console.log('run header again');
-      bus.$on('sso-info', e => {
-        console.log('header on run');
-        this.userName = decodeURIComponent(e);
-        console.log('This user is:' + this.userName);
-        if (!util.isBlank(this.userName)) {
+        this.userId = 'zhaoxnshow@11185.cn';
+      },
+      setUserName(userId) {
+        this.userId = decodeURIComponent(userId);
+        if (!util.isBlank(this.userId)) {
           this.userShow = true;
           this.loginShow = false;
         }
-        console.log('The userShow is:' + this.userShow);
-        console.log('The loginShow is:' + this.loginShow);
-        this.test = 'wawa';
+      }
+    },
+    created() {
+      console.log('header created');
+      let userId = util.getCookie('userId');
+      if (!util.isBlank(userId)) {
+        this.setUserName(userId);
+      }
+
+      bus.$on('ssofilter-info', e => {
+        console.log('header bus on');
+        this.setUserName(e);
       });
-      console.log('this userShow is:' + this.userShow);
-      console.log('this loginShow is:' + this.loginShow);
     }
   };
 </script>
