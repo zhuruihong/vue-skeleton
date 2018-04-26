@@ -6,17 +6,17 @@ import Router from 'vue-router';
 // import ssofilter from 'components/common/ssofilter/ssofilter';
 // import ssocatcher from 'components/common/ssocatcher/ssocatcher';
 
-// const modulehome = () => import('components/modulehome/modulehome');
-// const example2 = () => import('components/example2/example2');
-// const example1 = () => import('components/example1/example1');
-// const ssofilter = () => import('components/common/ssofilter/ssofilter');
-// const ssocatcher = () => import('components/common/ssocatcher/ssocatcher');
+const modulehome = () => import('components/modulehome/modulehome');
+const example2 = () => import('components/example2/example2');
+const example1 = () => import('components/example1/example1');
+const ssofilter = () => import('components/common/ssofilter/ssofilter');
+const ssocatcher = () => import('components/common/ssocatcher/ssocatcher');
 
-const modulehome = () => import(/* webpackChunkName: "group-exam" */ 'components/modulehome/modulehome');
-const example2 = () => import(/* webpackChunkName: "group-exam" */ 'components/example2/example2');
-const example1 = () => import(/* webpackChunkName: "group-exam" */ 'components/example1/example1');
-const ssofilter = () => import(/* webpackChunkName: "group-ssofilter" */ 'components/common/ssofilter/ssofilter');
-const ssocatcher = () => import(/* webpackChunkName: "group-ssofilter" */ 'components/common/ssocatcher/ssocatcher');
+// const modulehome = () => import(/* webpackChunkName: "group-exam" */ 'components/modulehome/modulehome');
+// const example2 = () => import(/* webpackChunkName: "group-exam" */ 'components/example2/example2');
+// const example1 = () => import(/* webpackChunkName: "group-exam" */ 'components/example1/example1');
+// const ssofilter = () => import(/* webpackChunkName: "group-ssofilter" */ 'components/common/ssofilter/ssofilter');
+// const ssocatcher = () => import(/* webpackChunkName: "group-ssofilter" */ 'components/common/ssocatcher/ssocatcher');
 
 Vue.use(Router);
 
@@ -43,8 +43,9 @@ export default new Router({
         {
           path: 'example2',
           name: 'example2',
-          component: example2,
-          meta: {requiresAuth: true}
+          component: example2
+          // ,
+          // meta: {requiresAuth: true}
         },
         {
           path: 'ssocatcher',

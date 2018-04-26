@@ -7,6 +7,7 @@ import util from 'common/js/util';
 import axios from 'axios';
 
 import 'common/stylus/base.styl';
+import 'common/css/main.css';
 
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;

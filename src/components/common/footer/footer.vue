@@ -60,7 +60,7 @@
     // }
   };
 </script>
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" scoped>
   .footer-out
     border 0
     width 100%np
