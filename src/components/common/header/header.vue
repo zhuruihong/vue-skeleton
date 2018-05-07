@@ -60,7 +60,7 @@
   import bus from 'common/js/bus.js';
   import util from 'common/js/util';
 
-  const cpsdcSso = require('cpsdc_sso');
+  // const cpsdcSso = require('cpsdc_sso');
   export default {
     data: function() {
       return {
@@ -86,7 +86,7 @@
         });
       },
       logout() {
-        cpsdcSso.logout(this.proxyUrl);
+        // cpsdcSso.logout(this.proxyUrl);
       },
       userInfo() {
         this.$message.info('功能开发中!');

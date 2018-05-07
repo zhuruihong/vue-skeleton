@@ -41,7 +41,8 @@
               ticket: this.urlParams.ticket
             }
           }
-        ).then((resp) => {
+        ).then(function(resp) {
+          this.msg = resp.data.msg;
             let userObj = resp.data;
             console.log(userObj);
             if (util.isBlank(userObj) || util.isBlank(userObj.user_name)) {

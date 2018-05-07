@@ -25,7 +25,7 @@ module.exports = {
     app: './src/main.js'
   },
   externals: {
-    'cpsdc_sso': 'cpsdc_sso',
+    // 'cpsdc_sso': 'cpsdc_sso',
     'test': 'test'
   },
   output: {

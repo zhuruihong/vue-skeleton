@@ -5,12 +5,19 @@ import App from './App';
 import router from './router';
 import util from 'common/js/util';
 import axios from 'axios';
+import VueLazyLoad from 'vue-lazyload';
 
 import 'common/stylus/base.styl';
 import 'common/css/main.css';
 
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
+
+Vue.use(VueLazyLoad, {
+  error: require('./common/image/error.png'),
+  loading: require('./common/image/cnpost.png'),
+  attempt: 1
+});
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
