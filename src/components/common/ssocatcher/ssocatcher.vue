@@ -5,6 +5,7 @@
 <script type="text/ecmascript-6">
   import util from 'common/js/util';
   import bus from 'common/js/bus.js';
+
   // import axios from 'axios';
   // import Vue from 'vue';
   // const cpsdcSso = require('cpsdc_sso');
@@ -41,10 +42,10 @@
               ticket: this.urlParams.ticket
             }
           }
-        ).then(function(resp) {
-          this.msg = resp.data.msg;
+        ).then((resp) => {
             let userObj = resp.data;
             console.log(userObj);
+
             if (util.isBlank(userObj) || util.isBlank(userObj.user_name)) {
               this.msg = 'ticket可能已经失效，请重新登录或联系管理员.....';
               this.className = 'error-msg';
