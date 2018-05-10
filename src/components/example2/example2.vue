@@ -1,5 +1,7 @@
 <template>
-    <div class="hello" ref="prefacePage">Hi,{{this.userId}}, {{msg}} Preface Page is {{prefacePage}}</div>
+  <div class="hello" ref="prefacePage">
+    Hi,{{this.userId}}, {{msg}} Preface Page is {{prefacePage}}
+  </div>
 </template>
 
 <script type="text/ecmascript-6">

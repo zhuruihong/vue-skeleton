@@ -76,5 +76,13 @@ export default {
       let exdate = new Date();
       exdate.setDate(exdate.getDate() + 1);
       document.cookie = 'expires=' + exdate.toGMTString(); // + ';path=/' + ';domain=post.com';
+  },
+  generatePicUrlByBrowser: function (urlJ, urlW) {
+    let userAgent = navigator.userAgent;
+    if (userAgent.indexOf('Opera') > -1 || userAgent.indexOf('Chrome') > -1) {
+      return urlW;
+    } else {
+      return urlJ;
+    }
   }
 };
