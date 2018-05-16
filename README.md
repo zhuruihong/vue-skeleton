@@ -31,9 +31,13 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 备忘：
 1. 使用unit test 依赖的模块
+
 karma 一个 JavaScript 测试运行器，其在测试中的作用相当于开发构建中使用的 webpack 。
+
 karma-webpack 连接 karma 和 webpack 的桥梁。不经过 webpack 编译命令是文件是无法独立运行的， karma 需要了解你的 webpack 配置，决定如何处理你的测试文件。
+
 karma-phantomjs-launcher 是 phantomjs 在 karma 中的启动器，由此引出了 phantomjs。 PhantomJS 是一个没有界面的 “浏览器” ，内置了 JavaScript API，支持各种Web标准：DOM 处理、CSS 选择器、JSON、Canvas 和 SVG 等。在查找相关资料时，也发现了其他的常规浏览器 launcher ，比如：Chrome、Firefox、Safari、IE 等，以应对不同浏览器或多浏览器的测试需求。见 Browsers
+
 karma-sourcemap-loader Karma 插件，生成文件的 sourcemap 。
 karma-mocha 让你在 karma 中使用 Mocha 测试框架的插件，使用时还需要安装前置依赖 mocha 。
 karma-sinon-chai 让你在 karma 中使用 sinon-chai 断言库的插件，前置依赖有 sinon-chai 、 sinon 、 chai …:confused:
