@@ -1,6 +1,7 @@
 <template>
   <div class="hello" ref="prefacePage">
     Hi,{{this.userId}}, {{msg}} Preface Page is {{prefacePage}}
+    <button @click="popAMess">X</button>
   </div>
 </template>
 
@@ -17,6 +18,11 @@
         userId: util.getCookie('userId'),
         prefacePage: this.$route.params.prefacePage
       };
+    },
+    methods: {
+      popAMess: function () {
+        console.log('pop a message.');
+      }
     },
     created() {
       console.log('I am example2.');

@@ -11,11 +11,12 @@
     <floor :urls="urls1"></floor>
 
     <div>This is a jsonp example:</div>
-    <div v-for="(item, index) in items" :key="index">
-      <div class="tree-item">{{item.treeName}}</div>
-      <div class="tree-item">{{item.id}}</div>
-      <div class="tree-item">{{item.treeCode}}</div>
-    </div>
+     <div v-for="(item, index) in items" :key="index">
+        <div class="tree-item">{{item.treeName}}</div>
+        <div class="tree-item">{{item.id}}</div>
+        <div class="tree-item">{{item.treeCode}}</div>
+      </div>
+    <button @click="popAMess">X</button>
   </div>
 </template>
 
@@ -52,6 +53,11 @@ export default {
         p8: util.generatePicUrlByBrowser(picList.f1P8J, picList.f1P8W)
       }
     };
+  },
+  methods: {
+    popAMess: function() {
+      console.log('pop a message.');
+    }
   },
   created() {
     // $.ajax({
