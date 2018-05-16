@@ -39,20 +39,32 @@ karma-webpack 连接 karma 和 webpack 的桥梁。不经过 webpack 编译命�
 karma-phantomjs-launcher 是 phantomjs 在 karma 中的启动器，由此引出了 phantomjs。 PhantomJS 是一个没有界面的 “浏览器” ，内置了 JavaScript API，支持各种Web标准：DOM 处理、CSS 选择器、JSON、Canvas 和 SVG 等。在查找相关资料时，也发现了其他的常规浏览器 launcher ，比如：Chrome、Firefox、Safari、IE 等，以应对不同浏览器或多浏览器的测试需求。见 Browsers
 
 karma-sourcemap-loader Karma 插件，生成文件的 sourcemap 。
+
 karma-mocha 让你在 karma 中使用 Mocha 测试框架的插件，使用时还需要安装前置依赖 mocha 。
+
 karma-sinon-chai 让你在 karma 中使用 sinon-chai 断言库的插件，前置依赖有 sinon-chai 、 sinon 、 chai …:confused:
+
 karma-spec-reporter 用于将测试结果显示到控制台。
+
 karma-coverage 生成代码覆盖率。
 
 ※※其中要使用 karma-phantomjs-launcher ，需要先安装 PhantomJS ，通过 phantomjs-prebuilt安装。
+
 ※※安装PhantomJS的过程中可能由于网络的原因，npm install安装可能不会成功，所以可以先将压缩包下载下来，然后复制到对应的目录，
 删除node_modules和packag再重新执行npm install指令
+
 Mac：
+
 下载地址：https://github.com/Medium/phantomjs/releases/download/v2.1.1/phantomjs-2.1.1-macosx.zip
+
 放置路径：/var/folders/45/4km6s76d2pzbpd5537g149lw0000gn/T/phantomjs/phantomjs-2.1.1-macosx.zip
+
 Windows：
+
 下载地址： https://github.com/Medium/phantomjs/releases/download/v2.1.1/phantomjs-2.1.1-windows.zip
+
 放置路径：C:\Users\ZHAOXN~1\AppData\Local\Temp\phantomjs\phantomjs-2.1.1-windows.zip
 
 2. 在skeleton/test/unit/specs/HelloWorld.spec.js中编写测试脚本;
+
 3. 执行npm run unit进行自动测试。
