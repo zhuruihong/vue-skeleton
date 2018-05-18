@@ -6,6 +6,7 @@ import router from './router';
 import util from 'common/js/util';
 import axios from 'axios';
 import VueLazyLoad from 'vue-lazyload';
+import 'babel-polyfill';
 
 import 'common/stylus/base.styl';
 import 'common/css/main.css';
