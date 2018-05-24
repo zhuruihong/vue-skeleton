@@ -1,7 +1,9 @@
 <template>
   <div>
     <mheader></mheader>
-    <router-view></router-view>
+    <transition name="slide-right">
+      <router-view class="child-view"></router-view>
+    </transition>
     <mfooter></mfooter>
   </div>
 </template>
@@ -18,6 +20,5 @@
   };
 </script>
 
-<style scoped>
-
+<style lang="stylus" rel="stylesheet/stylus" scoped>
 </style>

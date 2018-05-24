@@ -11,6 +11,15 @@ import 'babel-polyfill';
 import 'common/stylus/base.styl';
 import 'common/css/main.css';
 
+// 系统错误捕获
+const errorHandler = (error, vm) => {
+  console.error('抛出全局异常');
+  vm.$router.push({name: 'errorpage', params: {errors: error.message}});
+};
+
+Vue.config.errorHandler = errorHandler;
+Vue.prototype.$throw = (error, vm) => errorHandler(error, vm);
+
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
 

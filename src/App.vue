@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <transition name="slide-right">
+      <router-view class="child-view"></router-view>
+    </transition>
   </div>
 </template>
 
@@ -20,6 +22,5 @@
   };
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
-
+<style lang="stylus" rel="stylesheet/stylus" scoped>
 </style>

@@ -11,6 +11,7 @@ const example2 = () => import('components/example2/example2');
 const example1 = () => import('components/example1/example1');
 const ssofilter = () => import('components/common/ssofilter/ssofilter');
 const ssocatcher = () => import('components/common/ssocatcher/ssocatcher');
+const errorpage = () => import('components/common/errorpage/errorpage');
 
 // const modulehome = () => import(/* webpackChunkName: "group-exam" */ 'components/modulehome/modulehome');
 // const example2 = () => import(/* webpackChunkName: "group-exam" */ 'components/example2/example2');
@@ -51,6 +52,11 @@ export default new Router({
           path: 'ssocatcher',
           name: 'ssocatcher',
           component: ssocatcher
+        },
+        {
+          path: 'errorpage',
+          name: 'errorpage',
+          component: errorpage
         }
       ]
     },
