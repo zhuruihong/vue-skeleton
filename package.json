@@ -14,7 +14,8 @@
     "build": "node build/build.js",
     "build-uat": "node build/build-uat.js",
     "build-devit": "node build/build-devit.js",
-    "build-it": "node build/build-it.js"
+    "build-it": "node build/build-it.js",
+    "analyz": "NODE_ENV=production npm_config_report=true npm run build"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -95,7 +96,8 @@
     "vue-template-compiler": "^2.5.2",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "webpack-bundle-analyzer": "^2.9.0"
   },
   "engines": {
     "node": ">= 6.0.0",
