@@ -29,17 +29,6 @@ import util from 'common/js/util';
 import jsonp from 'jsonp';
 import picList from 'common/js/pic-list';
 
-// 引入Echarts主模块
-import echarts from 'echarts';
-// // 引入柱状图
-// require('echarts/lib/chart/bar');
-// // 引入圆饼图
-// require('echarts/lib/chart/pie');
-// // 引入所需组件
-// require('echarts/lib/component/tooltip');
-// require('echarts/lib/component/legend');
-// import $ from 'jquery';
-
 const config = require('../../../config');
 
 export default {
@@ -71,7 +60,7 @@ export default {
     },
     /* 创建图表一 */
     createChartOne() {
-      let chartOne = echarts.init(this.$refs.chartOne);
+      let chartOne = this.$echarts.init(this.$refs.chartOne);
 
       chartOne.setOption({
         title: { text: '在Vue中使用echarts' },

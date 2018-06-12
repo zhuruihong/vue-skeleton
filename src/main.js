@@ -8,6 +8,17 @@ import axios from 'axios';
 import VueLazyLoad from 'vue-lazyload';
 import 'babel-polyfill';
 
+// 引入Echarts主模块
+import echarts from 'echarts';
+// // 引入柱状图
+// require('echarts/lib/chart/bar');
+// // 引入圆饼图
+// require('echarts/lib/chart/pie');
+// // 引入所需组件
+// require('echarts/lib/component/tooltip');
+// require('echarts/lib/component/legend');
+// import $ from 'jquery';
+
 import 'common/stylus/base.styl';
 import 'common/css/main.css';
 
@@ -22,6 +33,8 @@ Vue.prototype.$throw = (error, vm) => errorHandler(error, vm);
 
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;
+
+Vue.prototype.$echarts = echarts;
 
 Vue.use(VueLazyLoad, {
   error: require('./common/image/error.png'),
