@@ -17,6 +17,7 @@
         <div class="tree-item">{{item.treeCode}}</div>
       </div>
     <button @click="popAMess">X</button>
+    <div class="chart" ref="chartOne"></div>
   </div>
 </template>
 
@@ -27,6 +28,16 @@ import floor from 'components/common/floor/floor';
 import util from 'common/js/util';
 import jsonp from 'jsonp';
 import picList from 'common/js/pic-list';
+
+// 引入Echarts主模块
+import echarts from 'echarts';
+// // 引入柱状图
+// require('echarts/lib/chart/bar');
+// // 引入圆饼图
+// require('echarts/lib/chart/pie');
+// // 引入所需组件
+// require('echarts/lib/component/tooltip');
+// require('echarts/lib/component/legend');
 // import $ from 'jquery';
 
 const config = require('../../../config');
@@ -57,6 +68,26 @@ export default {
   methods: {
     popAMess: function() {
       console.log('pop a message.');
+    },
+    /* 创建图表一 */
+    createChartOne() {
+      let chartOne = echarts.init(this.$refs.chartOne);
+
+      chartOne.setOption({
+        title: { text: '在Vue中使用echarts' },
+        tooltip: {},
+        xAxis: {
+          data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+        },
+        yAxis: {
+          // data: [0, 100, 200]
+        },
+        series: [{
+          name: '销量',
+          type: 'bar',
+          data: [5, 20, 36, 10, 10, 20]
+        }]
+      });
     }
   },
   created() {
@@ -104,6 +135,9 @@ export default {
       }
     });
   },
+  mounted() {
+    this.createChartOne();
+  },
   components: {
     mheader,
     mfooter,
@@ -132,4 +166,9 @@ export default {
     background-color white
   .tree-item
     display inline-block
+  .chart
+    align-content center
+    width 90%
+    height 300px
+    margin auto
 </style>
