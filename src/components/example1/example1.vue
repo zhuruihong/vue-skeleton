@@ -6,9 +6,10 @@
       <h1>{{ msg }}</h1>
       <h1>{{ tips }}</h1>
       <router-link :to="{ name: 'example2', params: { prefacePage: 'example1' }}">go to example2</router-link>
+      <button @click="goto2">goto2</button>
     </div>
 
-    <floor :urls="urls1"></floor>
+    <floor :urls="urls1" :content="content"></floor>
 
     <div>This is a jsonp example:</div>
      <div v-for="(item, index) in items" :key="index">
@@ -51,12 +52,17 @@ export default {
         p6: util.generatePicUrlByBrowser(picList.f1P6J, picList.f1P6W),
         p7: util.generatePicUrlByBrowser(picList.f1P7J, picList.f1P7W),
         p8: util.generatePicUrlByBrowser(picList.f1P8J, picList.f1P8W)
-      }
+      },
+      content: '0'
     };
   },
   methods: {
     popAMess: function() {
+      this.content = this.content + '1';
       console.log('pop a message.');
+    },
+    goto2: function() {
+      this.$router.push({name: 'example2', params: { prefacePage: 'example1' }});
     },
     /* 创建图表一 */
     createChartOne() {
@@ -80,6 +86,8 @@ export default {
     }
   },
   created() {
+    console.log('hhhhhhhhhh!!@@');
+    console.log(this.$route);
     // $.ajax({
     //   url: 'http://yntvapp.4kb.cn/webapp-yrt/content/columnList.do',
     //   dataType: 'jsonp',
@@ -126,6 +134,7 @@ export default {
   },
   mounted() {
     this.createChartOne();
+    console.log('hhhhhhhhhh!!');
   },
   components: {
     mheader,
@@ -137,7 +146,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-  @import "../../common/stylus/icon.styl"
+  /*@import "../../common/stylus/icon.styl"*/
 
   fontWightBold = bold
   .font-cus
@@ -147,6 +156,7 @@ export default {
     color black
   .h1-disp
     display inline-block
+    color black
   .h1-font
     font-weight fontWightBold
     color red

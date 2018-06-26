@@ -26,6 +26,9 @@
     props: {
       urls: {
         type: Object
+      },
+      content: {
+        type: String
       }
     },
     data: function () {

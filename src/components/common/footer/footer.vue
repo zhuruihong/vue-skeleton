@@ -81,7 +81,6 @@
     td
       width 200px
   .tbtxt
-    font-family MicrosoftYaHei-Bold
     font-size 24px
     color #221815
   .tbimg
@@ -90,13 +89,11 @@
       width 35px
       height 35px
   .footer-tr2
-    font-family MicrosoftYaHei
     font-size 14px
     color #8A8D8E
   .footerbottom
     background-image linear-gradient(90deg, #006649 0%, #037760 23%, #0DA9A1 56%, #1BC595 85%, #2BD15D 100%)
     height 180px
-    font-family MicrosoftYaHei
     font-size 14px
     color #FFFFFF
     text-align center

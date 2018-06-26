@@ -2,6 +2,7 @@
   <div class="hello" ref="prefacePage">
     Hi,{{this.userId}}, {{msg}} Preface Page is {{prefacePage}}
     <button @click="popAMess">X</button>
+    <button @click="goto1">goto1</button>
   </div>
 </template>
 
@@ -22,10 +23,14 @@
     methods: {
       popAMess: function () {
         console.log('pop a message.');
+      },
+      goto1: function () {
+        this.$router.push({name: 'example1'});
       }
     },
     created() {
       console.log('I am example2.');
+      console.log(this.$route);
       bus.$on('ssofilter-info', e => {
         console.log('example2 on run');
         this.userId = e;

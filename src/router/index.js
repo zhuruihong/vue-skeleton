@@ -12,6 +12,7 @@ const example1 = () => import('components/example1/example1');
 const ssofilter = () => import('components/common/ssofilter/ssofilter');
 const ssocatcher = () => import('components/common/ssocatcher/ssocatcher');
 const errorpage = () => import('components/common/errorpage/errorpage');
+const myPlayer = () => import('components/myPlayer/myPlayer');
 
 // const modulehome = () => import(/* webpackChunkName: "group-exam" */ 'components/modulehome/modulehome');
 // const example2 = () => import(/* webpackChunkName: "group-exam" */ 'components/example2/example2');
@@ -45,6 +46,13 @@ export default new Router({
           path: 'example2',
           name: 'example2',
           component: example2
+          // ,
+          // meta: {requiresAuth: true}
+        },
+        {
+          path: 'myPlayer',
+          name: 'myPlayer',
+          component: myPlayer
           // ,
           // meta: {requiresAuth: true}
         },

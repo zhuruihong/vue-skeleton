@@ -19,8 +19,16 @@ import echarts from 'echarts';
 // require('echarts/lib/component/legend');
 // import $ from 'jquery';
 
+import VideoPlayer from 'vue-video-player';
+
 import 'common/stylus/base.styl';
 import 'common/css/main.css';
+import 'common/stylus/icon.styl';
+
+require('video.js/dist/video-js.css');
+require('vue-video-player/src/custom-theme.css');
+
+Vue.use(VideoPlayer);
 
 // 系统错误捕获
 const errorHandler = (error, vm) => {

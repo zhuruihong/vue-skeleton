@@ -1,10 +1,20 @@
+@font-face
+  font-family: 'class-357-webfont'
+  src: url('../fonts/class-357-webfont.eot'); /* IE9 Compat Modes */
+  src: url('../fonts/class-357-webfont.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */
+    url('../fonts/class-357-webfont.ttf') format('truetype'), /* Safari, Android, iOS */
+    url('../fonts/class-357-webfont.woff') format('woff'), /* Modern Browsers */
+    url('../fonts/class-357-webfont.svg#class-357-webfont') format('svg') /* Legacy iOS */
+  font-weight: normal
+  font-style: normal
+
 html
   height 100%
 
-body, h1, h2, h3, h4, h5, h6, p, input
+body, h1, h2, h3, h4, h5, h6, p, input, a, div
   margin 0
   padding 0
-  font-family MicrosoftYaHei
+  font-family 'Microsoft YaHei', 'Microsoft Sans Serif', 'class-357-webfont'
 
 body
   background #F4F5F6
@@ -21,7 +31,6 @@ a
   color#333
 
 #app
-  font-family MicrosoftYaHei
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   text-align center

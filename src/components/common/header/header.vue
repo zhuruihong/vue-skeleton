@@ -121,7 +121,7 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-  @import "../../../common/stylus/icon.styl"
+  /*@import "../../../common/stylus/icon.styl"*/
 
   header
     background-image linear-gradient(90deg, #006649 0%, #037760 23%, #0DA9A1 56%, #1BC595 85%, #2BD15D 100%)
