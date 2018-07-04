@@ -7,6 +7,8 @@
       <h1>{{ tips }}</h1>
       <router-link :to="{ name: 'example2', params: { prefacePage: 'example1' }}">go to example2</router-link>
       <button @click="goto2">goto2</button>
+      <br/>
+      <router-link :to="{ name: 'myQuilleditor'}">go to myQuilleditor</router-link>
     </div>
 
     <floor :urls="urls1" :content="content"></floor>
