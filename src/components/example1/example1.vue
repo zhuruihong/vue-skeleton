@@ -9,6 +9,8 @@
       <button @click="goto2">goto2</button>
       <br/>
       <router-link :to="{ name: 'myQuilleditor'}">go to myQuilleditor</router-link>
+      <br/>
+      <router-link :to="{ name: 'myPlayer'}">go to myPlayer</router-link>
     </div>
 
     <floor :urls="urls1" :content="content"></floor>

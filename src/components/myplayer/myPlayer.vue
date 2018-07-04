@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <div>HHHHHHHH</div>
     <div class="player">
       <!--<video-player  class="video-player vjs-custom-skin"-->
                      <!--ref="videoPlayer"-->
