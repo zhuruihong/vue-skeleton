@@ -42,6 +42,7 @@
 
 </template>
 <script>
+  import { quillEditor } from 'vue-quill-editor';
   import html2canvas from 'common/js/html2canvas.js';
   import $ from 'jquery';
   export default {
@@ -170,10 +171,17 @@
     created: function () {
       this.initData();
       this.setContent();
+    },
+    components: {
+      quillEditor
     }
   };
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
+  @import 'quill/dist/quill.core.css';
+  @import 'quill/dist/quill.snow.css';
+  @import 'quill/dist/quill.bubble.css';
+
   .my-quill-editor
     .my-el-tabs
       position unset !important

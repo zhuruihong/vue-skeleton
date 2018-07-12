@@ -12,22 +12,22 @@ import ElementUI from 'element-ui';
 // import $ from 'jquery';
 
 import VideoPlayer from 'vue-video-player';
-import VueQuillEditor from 'vue-quill-editor';
+// import VueQuillEditor from 'vue-quill-editor';
 
 import 'common/stylus/base.styl';
 import 'common/css/main.css';
 import 'common/stylus/icon.styl';
 // require styles 引入样式
-import 'quill/dist/quill.core.css';
-import 'quill/dist/quill.snow.css';
-import 'quill/dist/quill.bubble.css';
+// import 'quill/dist/quill.core.css';
+// import 'quill/dist/quill.snow.css';
+// import 'quill/dist/quill.bubble.css';
 import 'element-ui/lib/theme-chalk/index.css';
 
 require('video.js/dist/video-js.css');
 require('vue-video-player/src/custom-theme.css');
 
 Vue.use(VideoPlayer);
-Vue.use(VueQuillEditor);
+// Vue.use(VueQuillEditor);
 Vue.use(ElementUI);
 
 // 系统错误捕获
