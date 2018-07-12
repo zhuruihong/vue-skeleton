@@ -30,12 +30,20 @@
       <div class="btn-div">
         <el-button type="primary" @click="save()" class="mybutton" round>Submit</el-button>
         <el-button type="warning" @click="clear()" class="mybutton" round>Clear</el-button>
+        <el-button type="primary" @click="imgGenerator" class="mybutton" round>TakePicture</el-button>
+      </div>
+
+      <div class="section-cus">
+        <section class="share_popup" id="html2canvas">
+        </section>
       </div>
     </div>
   </div>
 
 </template>
 <script>
+  import html2canvas from 'common/js/html2canvas.js';
+  import $ from 'jquery';
   export default {
     data() {
       return {
@@ -129,6 +137,34 @@
         } else {
           this.dataObj = [[{'data': 'first'}, {'data': 'second'}], [{'data': 'third'}, {'data': 'fourth'}]];
         }
+      },
+      imgGenerator: function () {
+        var str = this.dataObj[this.idx1][this.idx2Arr[this.idx1]].data;
+        var copyDom = document.createElement('section');
+        copyDom.setAttribute('id', 'showPic');
+        copyDom.style.width = '500px';
+        copyDom.style.whiteSpace = 'normal';
+        copyDom.style.wordBreak = 'break-all';
+        copyDom.style.wordWrap = 'break-word';
+        copyDom.innerHTML = str;
+        $('body').append(copyDom);
+
+        html2canvas(copyDom, {
+          scale: 2,
+          logging: false,
+          useCORS: true,
+          allowTaint: true,
+          taintTest: false,
+          onrendered: function(canvas) {
+            var imageBase64 = canvas.toDataURL('image/png');
+            console.log('+++++++++++++++');
+            console.log(imageBase64);
+            console.log('+++++++++++++++');
+            var pHtml = '<img src=' + imageBase64 + ' />';
+            $('#html2canvas').html(pHtml);
+            $('#showPic').remove();
+          }
+        });
       }
     },
     created: function () {
@@ -157,5 +193,13 @@
       width 120px
     .btn-div
       margin-top 20px
-
+    .section-cus
+      margin auto
+      width 500px
+    .hidden-div
+      width 500px
+      white-space:normal;
+      word-break:break-all;
+      word-wrap:break-word;
+      display none
 </style>

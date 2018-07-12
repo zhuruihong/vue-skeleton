@@ -22,7 +22,7 @@
         <div class="tree-item">{{item.treeCode}}</div>
       </div>
     <button @click="popAMess">X</button>
-    <div class="chart" ref="chartOne"></div>
+    <chartone></chartone>
   </div>
 </template>
 
@@ -30,6 +30,7 @@
 import mheader from 'components/common/header/header';
 import mfooter from 'components/common/footer/footer';
 import floor from 'components/common/floor/floor';
+import chartone from 'components/common/chartone/chartone';
 import util from 'common/js/util';
 import jsonp from 'jsonp';
 import picList from 'common/js/pic-list';
@@ -67,26 +68,6 @@ export default {
     },
     goto2: function() {
       this.$router.push({name: 'example2', params: { prefacePage: 'example1' }});
-    },
-    /* 创建图表一 */
-    createChartOne() {
-      let chartOne = this.$echarts.init(this.$refs.chartOne);
-
-      chartOne.setOption({
-        title: { text: '在Vue中使用echarts' },
-        tooltip: {},
-        xAxis: {
-          data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
-        },
-        yAxis: {
-          // data: [0, 100, 200]
-        },
-        series: [{
-          name: '销量',
-          type: 'bar',
-          data: [5, 20, 36, 10, 10, 20]
-        }]
-      });
     }
   },
   created() {
@@ -137,13 +118,13 @@ export default {
     });
   },
   mounted() {
-    this.createChartOne();
     console.log('hhhhhhhhhh!!');
   },
   components: {
     mheader,
     mfooter,
-    floor
+    floor,
+    chartone
   }
 };
 </script>
@@ -169,9 +150,4 @@ export default {
     background-color white
   .tree-item
     display inline-block
-  .chart
-    align-content center
-    width 90%
-    height 300px
-    margin auto
 </style>

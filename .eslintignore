@@ -6,3 +6,4 @@ sso*.js
 json*.js
 cycle.js
 /test/unit/coverage/
+html2canvas.js
