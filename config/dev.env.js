@@ -13,5 +13,6 @@ module.exports = merge(prodEnv, {
   URL_CAS_VALIDATE_PREFIX: '"https://passport.11185.cn:8001/cas/serviceValidate"',
   PARAM_TICKET:  '"ticket"',
   PROXY_PAGE: '"http://localhost:8080/ssofilter"',
-  SSO_CATCHER: '"modulehome/ssocatcher"'
+  SSO_CATCHER: '"modulehome/ssocatcher"',
+  PIC_PATH: '"/Users/zhaoxn/post-online/POBP/skeleton/static/img/"'
 })

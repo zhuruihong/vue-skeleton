@@ -33,6 +33,8 @@
         <el-button type="primary" @click="imgGenerator" class="mybutton" round>TakePicture</el-button>
       </div>
 
+      <div class="message-title" v-show="showMsgTitle">以下为富文本生成的图片</div>
+      <div class="message-title" v-show="showMsgTitle">{{ message }}</div>
       <div class="section-cus">
         <section class="share_popup" id="html2canvas">
         </section>
@@ -57,7 +59,9 @@
 
         },
         idx1: 0,
-        idx2Arr: [1, 0]
+        idx2Arr: [1, 0],
+        message: null,
+        showMsgTitle: false
       };
     },
     methods: {
@@ -144,6 +148,7 @@
         var copyDom = document.createElement('section');
         copyDom.setAttribute('id', 'showPic');
         copyDom.style.width = '500px';
+        copyDom.style.backgroundColor = 'white';
         copyDom.style.whiteSpace = 'normal';
         copyDom.style.wordBreak = 'break-all';
         copyDom.style.wordWrap = 'break-word';
@@ -156,16 +161,72 @@
           useCORS: true,
           allowTaint: true,
           taintTest: false,
-          onrendered: function(canvas) {
-            var imageBase64 = canvas.toDataURL('image/png');
+          onrendered: (canvas) => {
+            this.showMsgTitle = true;
+            var imageBase64 = canvas.toDataURL('image/jpeg', 0.92);
             console.log('+++++++++++++++');
             console.log(imageBase64);
             console.log('+++++++++++++++');
             var pHtml = '<img src=' + imageBase64 + ' />';
             $('#html2canvas').html(pHtml);
             $('#showPic').remove();
+            this.takePicture(imageBase64);
           }
         });
+      },
+      takePicture(imageBase64) {
+        let url = '/run' + '/api/savePictureByBase64/';
+        let picPathName = process.env.PIC_PATH + this.idx1 + this.idx2Arr[this.idx1] + '_0092.jpeg';
+        // let params = {
+        //   'picPathName': picPathName,
+        //   'picStrBase64': imageBase64
+        // };
+        // let option = {
+        //   headers: {
+        //     'Content-Type': 'application/x-www-form-urlencoded'
+        //   }
+        // }
+        // this.$http.post(
+        //   url,
+        //   params,
+        //   option
+        // ).then((resp) => {
+        //     console.log(resp);
+        //     this.message = resp;
+        //   }
+        // ).catch((error) => {
+        //     console.log(error);
+        //     this.message = error;
+        //   }
+        // );
+
+        this.$http({
+          url: url,
+          method: 'post',
+          data: {
+            'picPathName': picPathName,
+            'picStrBase64': imageBase64
+          },
+          transformRequest: [function (data) {
+            // Do whatever you want to transform the data
+            let ret = '';
+            for (let it in data) {
+              ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&';
+            }
+            return ret;
+          }],
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        }).then((resp) => {
+            console.log(resp);
+            this.message = resp.data;
+          }
+        ).catch((error) => {
+            console.log(error);
+            this.message = error;
+          }
+        );
       }
     },
     created: function () {
@@ -210,4 +271,8 @@
       word-break:break-all;
       word-wrap:break-word;
       display none
+    .message-title
+      text-align left
+      color red
+      font-weight bold
 </style>
