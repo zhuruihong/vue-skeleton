@@ -14,5 +14,5 @@ module.exports = merge(prodEnv, {
   PARAM_TICKET:  '"ticket"',
   PROXY_PAGE: '"http://localhost:8080/ssofilter"',
   SSO_CATCHER: '"modulehome/ssocatcher"',
-  PIC_PATH: '"/Users/zhaoxn/post-online/POBP/skeleton/static/img/"'
+  PIC_PATH: '"/Users/zhaoxn/post-online/git/vue-skeleton/static/img/"'
 })

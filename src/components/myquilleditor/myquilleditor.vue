@@ -34,11 +34,11 @@
       </div>
 
       <div class="message-title" v-show="showMsgTitle">以下为富文本生成的图片</div>
-      <div class="message-title" v-show="showMsgTitle">{{ message }}</div>
       <div class="section-cus">
         <section class="share_popup" id="html2canvas">
         </section>
       </div>
+      <div class="message-title" v-show="showMsgTitle">{{ message }}</div>
     </div>
   </div>
 
@@ -224,7 +224,7 @@
           }
         ).catch((error) => {
             console.log(error);
-            this.message = error;
+            this.message = '1:图片通过服务端保存失败，可能是后台服务未启动。';
           }
         );
       }
