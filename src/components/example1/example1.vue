@@ -22,6 +22,7 @@
         <div class="tree-item">{{item.treeCode}}</div>
       </div>
     <button @click="popAMess">X</button>
+    <button @click="printLog">printLog</button>
     <chartone></chartone>
   </div>
 </template>

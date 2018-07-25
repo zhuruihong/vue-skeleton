@@ -14,6 +14,7 @@ const ssocatcher = () => import('components/common/ssocatcher/ssocatcher');
 const errorpage = () => import('components/common/errorpage/errorpage');
 const myPlayer = () => import('components/myPlayer/myPlayer');
 const myQuilleditor = () => import('components/myquilleditor/myquilleditor.vue');
+const myDirective = () => import('components/mydirective/mydirective.vue');
 
 // const modulehome = () => import(/* webpackChunkName: "group-exam" */ 'components/modulehome/modulehome');
 // const example2 = () => import(/* webpackChunkName: "group-exam" */ 'components/example2/example2');
@@ -40,6 +41,13 @@ export default new Router({
           path: 'example1',
           name: 'example1',
           component: example1
+          // ,
+          // meta: {requiresAuth: true}
+        },
+        {
+          path: 'myDirective',
+          name: 'myDirective',
+          component: myDirective
           // ,
           // meta: {requiresAuth: true}
         },

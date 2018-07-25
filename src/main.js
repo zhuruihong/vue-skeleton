@@ -51,6 +51,32 @@ Vue.use(VueLazyLoad, {
   attempt: 1
 });
 
+// 为自定义的选项 'myOption' 注入一个处理器。
+Vue.mixin({
+  methods: {
+    printLog: function () {
+      console.log('I am from Gloable mixin');
+    }
+  }
+});
+
+Vue.directive('drag', {
+  inserted: function(el) {
+    el.onmousedown = function(e) {
+      let l = e.clientX - el.offsetLeft;
+      let t = e.clientY - el.offsetTop;
+      document.onmousemove = function(e) {
+        el.style.left = e.clientX - l + 'px';
+        el.style.top = e.clientY - t + 'px';
+      };
+      el.onmouseup = function() {
+        document.onmousemove = null;
+        el.onmouseup = null;
+      };
+    };
+  }
+});
+
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth)) {
     // this route requires auth, check if logged in
