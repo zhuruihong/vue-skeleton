@@ -88,6 +88,10 @@ export default new Router({
       path: '/ssofilter',
       name: 'ssofilter',
       component: ssofilter
+    },
+    {
+      path: '*',
+      redirect: '/modulehome/errorpage'
     }
   ]
 });
